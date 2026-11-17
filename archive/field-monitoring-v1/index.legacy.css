@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* JalSetu AI Proposed Brand Palette */
+  --color-ocean-blue: #123B66;
+  --color-freshwater: #299BCB;
+  --color-stale-water: #647F8C;
+
+  /* Agricultural Field Greens */
+  --color-deep-crop: #245C38;
+  --color-crop-green: #438653;
+  --color-light-crop: #78AD76;
+  --color-pale-field: #E8F2E5;
+
+  /* Sunshine Highlight */
+  --color-sunshine-orange: #F29A38;
+
+  /* Backgrounds & Surfaces */
+  --color-bg-app: #F5F8FC;
+  --color-surface: #FFFFFF;
+  --color-border-subtle: #E2E8F0;
+  --color-border-medium: #CBD5E1;
+
+  /* Percentage Bars */
+  --color-bar-deep: #123B66;
+  --color-bar-std: #1976B9;
+  --color-bar-fresh: #299BCB;
+  --color-bar-light: #76C4E5;
+  --color-bar-track: #DCEFF8;
+
+  /* Documented Semantic Risk Statuses */
+  --color-risk-high: #D32F2F;
+  --color-risk-mod: #D97706;
+  --color-risk-low: #438653;
+  --color-risk-paused: #299BCB;
+
+  /* Typography Text Hierarchy */
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748B;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-bg-app);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom delicate scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F8FC;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #299BCB;
+}
+
+/* Subtle image load transition */
+img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Button design system utilities */
+@layer components {
+  .btn-base {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    user-select: none;
+  }
+  .btn-base:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #F5F8FC, 0 0 0 4px #299BCB;
+  }
+  .btn-base:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  .btn-base:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Primary Button: Freshwater Blue #299BCB */
+  .btn-primary {
+    @apply btn-base;
+    background-color: #299BCB;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 3px rgba(18, 59, 102, 0.12), 0 1px 2px rgba(18, 59, 102, 0.08);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background-color: #2184AD;
+  }
+  .btn-primary:active:not(:disabled) {
+    background-color: #1B6E91;
+  }
+
+  /* Selected / Active Item: Ocean Blue #123B66 */
+  .btn-selected {
+    @apply btn-base;
+    background-color: #123B66;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 3px rgba(18, 59, 102, 0.14), 0 1px 2px rgba(18, 59, 102, 0.08);
+  }
+  .btn-selected:hover:not(:disabled) {
+    background-color: #0D2A4A;
+  }
+  .btn-selected:active:not(:disabled) {
+    background-color: #081D33;
+  }
+
+  /* Secondary Button: Clean White with Ocean Blue text and slate border */
+  .btn-secondary {
+    @apply btn-base;
+    background-color: #FFFFFF;
+    color: #123B66;
+    border: 1px solid #CBD5E1;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 2px rgba(18, 59, 102, 0.04);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    background-color: #F5F8FC;
+    color: #299BCB;
+    border-color: #76C4E5;
+  }
+  .btn-secondary:active:not(:disabled) {
+    background-color: #E8F2E5;
+  }
+
+  /* Agricultural / Positive Button: Crop Green #438653 */
+  .btn-crop, .btn-success {
+    @apply btn-base;
+    background-color: #438653;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 3px rgba(36, 92, 56, 0.12);
+  }
+  .btn-crop:hover:not(:disabled), .btn-success:hover:not(:disabled) {
+    background-color: #356F43;
+  }
+
+  /* Sunshine Highlight Button: #F29A38 */
+  .btn-sunshine {
+    @apply btn-base;
+    background-color: #F29A38;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 1px 3px rgba(242, 154, 56, 0.2);
+  }
+  .btn-sunshine:hover:not(:disabled) {
+    background-color: #DE8828;
+  }
+}
